@@ -442,9 +442,13 @@ interseccao([_|L1],L2,LI):- interseccao(L1,L2,LI).
 
 
 
+paridade([H|T], P, I):- pares([H|T], P), impares([H|T], I).
 
+pares([],0).
+pares([H|T], P):- pares(T, P1), A is H mod 2, (A==0,P is P1 + 1); pares(T, P).
 
-
+impares([],0).
+impares([H|T], I):- impares(T, I1), A is H mod 2, (A==1, I is I1 + 1); impares(T,I).
 
 
 
